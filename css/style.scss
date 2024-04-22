@@ -37,6 +37,12 @@
         height: 320px !important;
     }
 
+    /* all pages */
+
+    .copyright span, .fillings, .friends {
+        display: none !important; // 移动端隐藏底部友情链接与备案
+    }
+
 }
 
 @media screen and (min-width: 769px) {
@@ -79,6 +85,17 @@ body {
     font-family: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+}
+
+// 烟花粒子样式
+.fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block; // 如果你不想要鼠标点击烟花粒子特效，可以将其属性值改为“none”
+    z-index: -999;
 }
 
 @mixin main-center {
@@ -402,7 +419,9 @@ body {
 .index {
     @include main-center;
     flex-direction: column;
+    justify-content: flex-start;
     padding: 96px 40px 60px 40px;
+    min-height: calc(100vh - 100px); /* 防止项目数量不够一屏高度时 footer 上移 */
 
     @mixin H1 {
         font-size: 32px;
@@ -609,7 +628,9 @@ body {
 .work {
     @include main-center();
     padding: 154px 40px 60px 40px;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     min-height: calc(100vh - 100px); /* 防止项目数量不够一屏高度时 footer 上移 */
 
     .card-list {
@@ -708,18 +729,35 @@ body {
                             $color: #57AC84;
                             color: $color;
                             background: rgba($color, 0.1);
+                            border: 1px solid rgba($color, 0.16);
                         }
 
                         .tag-assets {
                             $color: #D59A78;
                             color: $color;
                             background: rgba($color, 0.1);
+                            border: 1px solid rgba($color, 0.16);
                         }
 
                         .tag-app {
                             $color: #cb55d2;
                             color: $color;
                             background: rgba($color, 0.1);
+                            border: 1px solid rgba($color, 0.16);
+                        }
+
+                        .tag-2b {
+                            $color: #6F98FF;
+                            color: $color;
+                            background: rgba($color, 0.1);
+                            border: 1px solid rgba($color, 0.16);
+                        }
+
+                        .tag-other {
+                            $color: #939EA9;
+                            color: $color;
+                            background: rgba($color, 0.1);
+                            border: 1px solid rgba($color, 0.16);
                         }
                     }
 
