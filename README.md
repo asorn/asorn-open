@@ -29,7 +29,6 @@
 一起欣赏下大家的创作吧（如果你愿意，可以联系我添加你的创作）：
 
 - [SCOTT-STUDIO](https://scott-studio.cn/)
-- [motin](https://one.motin.cc/)
 
 ---
 
