@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    // 自动把 scss 转成 css 和压缩 css 插件
+    "spook.easysass",
+    // 开启本地服务器插件
+    "yandeu.five-server"
+  ]
+}
