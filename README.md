@@ -33,6 +33,17 @@
 - [SCOTT-STUDIO](https://scott-studio.cn/)
 - [tutuzly](https://tutuzly.com/)
 - [Icnon](https://icnon.github.io/)
+- [Henry](https://henryblog.cn/)
+- [Jerry](https://lanxx.top/)
+- [Htm](http://htm.wang/)
+- [Taoqibao](https://www.liangwangan.top/)
+- [Ethan Zhi](https://ethanzhi.top/)
+- [NextEcho](https://nextecho.github.io/)
+- [limitlessjoy](http://limitlessjoy.cn/)
+- [Jiang](https://freedesignfreecreation.cn/)
+- [51921](https://51921.work/)
+- [Ethink](https://huaeyl.cn/)
+- [leonardo_zi](http://leonardozi4.cloud/)
 
 ---
 
