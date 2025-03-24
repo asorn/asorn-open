@@ -1,198 +1,270 @@
 <!DOCTYPE html>
-<html lang="zh-CN" style="color-scheme: dark;">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asorn - My Work</title>
+    <title>Asorn - My Projects</title>
     <link rel="stylesheet" href="./css/style.min.css">
-    <link rel="shortcut icon" href="./assets/public/favicon.svg"/>
+    <link rel="shortcut icon" href="./assets/public/favicon.svg" />
 </head>
+
 <body>
     <canvas class="fireworks"></canvas>
-    <div class="head">
+    <div class="head" id="headscrollbg">
         <div class="main">
-            <a href="./index.html" class="logo"><img src="./assets/public/logo_text.svg"></a>
-            <div class="menu">
+            <div class="main-left">
+                <a href="./index.html" class="logo"><img src="./assets/public/logo_graph.svg"></a>
+                <div class="tag tag-cooperate" onclick="window.location.href='./about.html'">
+                    <div class="breath-dot"></div>Contact
+                </div>
+            </div>
+            <div class="menu" id="main-menu">
                 <li class="magical btn" onclick="window.location.href='./index.html'">Home</li>
                 <li class="magical btn nav" onclick="window.location.href='./work.html'">Work</li>
+                <li class="magical btn" onclick="window.location.href='./tool.html'">Tool</li>
                 <li class="magical btn" onclick="window.location.href='./blog.html'">Blog</li>
+                <li class="magical btn" onclick="window.location.href='./book.html'">Book</li>
                 <li class="magical btn" onclick="window.location.href='./about.html'">About</li>
             </div>
             <div class="menu" id="menu-expand">
-                <li class="magical btn skin" id="menu-expand-child"><i class="icon menu-icon"></i></li>
+                <li class="magical btn menu-expand-btn" id="menu-expand-child"><i class="icon menu-icon"></i></li>
             </div>
             <div id="menu-panel">
-                <div class="menu-panel-content">
-                    <li class="magical btn" onclick="window.location.href='./index.html'">Home</li>
-                    <li class="magical btn nav" onclick="window.location.href='./work.html'">Work</li>
-                    <li class="magical btn" onclick="window.location.href='./blog.html'">Blog</li>
-                    <li class="magical btn" onclick="window.location.href='./about.html'">About</li>
+                <div class="menu-panel-content" id="menu-panel-content"></div>
+                <div class="menu-close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z"></path></svg>
                 </div>
             </div>
         </div>
-        <blockquote><img src="./assets/public/logo.svg"></blockquote>
     </div>
-        <div class="work">
-            <div class="card-list">
+    <div class="work">
+        <div class="review-container">
+            <div class="row-list" id="rowScroll">
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+                <div class="review-item">
+                    <img src="./assets/work/asorn-avatar.png">
+                    <span class="review-text">One sentence to evaluate yourself</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-list">
+            <div class="card-list-category load-pro card-list-history">
                 <div class="magical item">
                     <a href="https://asorn.cn/" target="_blank">
-                        <div class="dark"><img class="cover" src="./assets/work/empty.png"></div>
                         <div class="text">
                             <div class="title-area">
                                 <div class="title">
-                                    <div class="name">Title</div>
-                                    <div class="name link"> ↗</div>
+                                    <div class="name">Project Name</div>
                                 </div>
-                                <div class="tag tag-web">Web</div>
                             </div>
-                            <div class="desc">Welcome to my open source blog</div>
+                        </div>
+                        <div class="cover">
+                            <img src="./assets/work/tob.png">
+                            <img class="img-bg" src="./assets/work/img-bg.png">
                         </div>
                     </a>
                 </div>
                 <div class="magical item">
                     <a href="https://asorn.cn/" target="_blank">
-                        <div class="dark"><img class="cover" src="./assets/work/empty.png"></div>
                         <div class="text">
                             <div class="title-area">
                                 <div class="title">
-                                    <div class="name">Title</div>
-                                    <div class="name link"> ↗</div>
+                                    <div class="name">Project Name</div>
                                 </div>
-                                <div class="tag tag-assets">Assets</div>
                             </div>
-                            <div class="desc">Welcome to my open source blog</div>
+                        </div>
+                        <div class="cover">
+                            <img src="./assets/work/tob.png">
+                            <img class="img-bg" src="./assets/work/img-bg.png">
                         </div>
                     </a>
                 </div>
                 <div class="magical item">
                     <a href="https://asorn.cn/" target="_blank">
-                        <div class="dark"><img class="cover" src="./assets/work/empty.png"></div>
                         <div class="text">
                             <div class="title-area">
                                 <div class="title">
-                                    <div class="name">Title</div>
-                                    <div class="name link"> ↗</div>
+                                    <div class="name">Project Name</div>
                                 </div>
-                                <div class="tag tag-app">App</div>
                             </div>
-                            <div class="desc">Welcome to my open source blog</div>
+                        </div>
+                        <div class="cover">
+                            <img src="./assets/work/tob.png">
+                            <img class="img-bg" src="./assets/work/img-bg.png">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="category-divider"></div>
+            <div class="card-list-category load-pro card-list-history">
+                <div class="magical item">
+                    <a href="https://asorn.cn/" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name-emoji">🔥 </div>
+                                    <div class="name">Project Name</div>
+                                </div>
+                                <div class="tag tag-web">Tag</div>
+                            </div>
+                            <div class="desc">Welcome to my open source blog...</div>
+                        </div>
+                        <div class="cover">
+                            <img src="./assets/work/default-cover.png">
+                            <img class="img-bg" src="./assets/work/img-bg.png">
                         </div>
                     </a>
                 </div>
                 <div class="magical item">
                     <a href="https://asorn.cn/" target="_blank">
-                        <div class="dark"><img class="cover" src="./assets/work/empty.png"></div>
                         <div class="text">
                             <div class="title-area">
                                 <div class="title">
-                                    <div class="name">Title</div>
-                                    <div class="name link"> ↗</div>
+                                    <div class="name">Project Name</div>
                                 </div>
-                                <div class="tag tag-2b">ToB</div>
+                                <div class="tag tag-app">Tag</div>
                             </div>
-                            <div class="desc">Welcome to my open source blog</div>
+                            <div class="desc">Welcome to my open source blog...</div>
+                        </div>
+                        <div class="cover">
+                            <img src="./assets/work/default-cover.png">
+                            <img class="img-bg" src="./assets/work/img-bg.png">
                         </div>
                     </a>
                 </div>
                 <div class="magical item">
                     <a href="https://asorn.cn/" target="_blank">
-                        <div class="dark"><img class="cover" src="./assets/work/empty.png"></div>
                         <div class="text">
                             <div class="title-area">
                                 <div class="title">
-                                    <div class="name">Title</div>
-                                    <div class="name link"> ↗</div>
+                                    <div class="name">Project Name</div>
                                 </div>
-                                <div class="tag tag-other">Other</div>
+                                <div class="tag tag-assets">Tag</div>
                             </div>
-                            <div class="desc">Welcome to my open source blog</div>
+                            <div class="desc">Welcome to my open source blog...</div>
+                        </div>
+                        <div class="cover">
+                            <img src="./assets/work/default-cover.png">
+                            <img class="img-bg" src="./assets/work/img-bg.png">
                         </div>
                     </a>
                 </div>
                 <div class="magical item">
                     <a href="https://asorn.cn/" target="_blank">
-                        <div class="dark"><img class="cover" src="./assets/work/empty.png"></div>
                         <div class="text">
                             <div class="title-area">
                                 <div class="title">
-                                    <div class="name">Title</div>
-                                    <div class="name link"> ↗</div>
+                                    <div class="name">Project Name</div>
                                 </div>
-                                <div class="tag tag-other">Other</div>
+                                <div class="tag tag-2b">Tag</div>
                             </div>
-                            <div class="desc">Welcome to my open source blog</div>
+                            <div class="desc">Welcome to my open source blog...</div>
+                        </div>
+                        <div class="cover">
+                            <img src="./assets/work/default-cover.png">
+                            <img class="img-bg" src="./assets/work/img-bg.png">
                         </div>
                     </a>
                 </div>
                 <div class="magical item">
                     <a href="https://asorn.cn/" target="_blank">
-                        <div class="dark"><img class="cover" src="./assets/work/empty.png"></div>
                         <div class="text">
                             <div class="title-area">
                                 <div class="title">
-                                    <div class="name">Title</div>
-                                    <div class="name link"> ↗</div>
+                                    <div class="name">Project Name</div>
                                 </div>
-                                <div class="tag tag-other">Other</div>
+                                <div class="tag tag-other">Tag</div>
                             </div>
-                            <div class="desc">Welcome to my open source blog</div>
+                            <div class="desc">Welcome to my open source blog...</div>
                         </div>
-                    </a>
-                </div>
-                <div class="magical item">
-                    <a href="https://asorn.cn/" target="_blank">
-                        <div class="dark"><img class="cover" src="./assets/work/empty.png"></div>
-                        <div class="text">
-                            <div class="title-area">
-                                <div class="title">
-                                    <div class="name">Title</div>
-                                    <div class="name link"> ↗</div>
-                                </div>
-                                <div class="tag tag-other">Other</div>
-                            </div>
-                            <div class="desc">Welcome to my open source blog</div>
+                        <div class="cover">
+                            <img src="./assets/work/default-cover.png">
+                            <img class="img-bg" src="./assets/work/img-bg.png">
                         </div>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="footer">
+    </div>
+    <div class="footer">
+        <div class="footer-content">
             <div class="copyright">
-                <div>© 2023 Design by <a href="https://asorn.cn/" target="_blank">Asorn</a></div>
+                <div>© 2025 Design by <a href="https://asorn.cn/" target="_blank">Asorn</a></div>
                 <span>|</span>
                 <div class="fillings">
-                    <a href="https://asorn.cn/" target="_blank">Asorn</a>
-                </div>
-                <span>|</span>
-                <div class="friends">
-                    <a href="https://zdo.fun/" target="_blank">ZDO</a>
+                    <a href="https://asorn.cn/" target="_blank">Your filing number</a>
                 </div>
             </div>
-        </div>
-        <div class="widget">
-            <div class="shape-light"></div>
-            <div class="shape-star">
-                <div class="rising-stars rising-stars-visible">
-                    <div style="height:1px;width:1px"></div>
-                    <div style="height:2px;width:2px"></div>
-                    <div style="height:1px;width:1px"></div>
-                </div>
+            <div class="friends">
+                <a href="https://zdo.fun/" target="_blank">ZDO</a>
+                <a href="https://larkmap.com/" target="_blank">Larkmap</a>
+                <a href="https://qingicon.com/" target="_blank">QingIcon</a>
             </div>
-            <div class="shape-earth"></div>
         </div>
+    </div>
+    <div class="widget">
+        <div class="shape-light"></div>
+        <div class="shape-star">
+            <div class="rising-stars rising-stars-visible">
+                <div style="height:1px;width:1px"></div>
+                <div style="height:2px;width:2px"></div>
+                <div style="height:1px;width:1px"></div>
+            </div>
+        </div>
+        <div class="shape-earth"></div>
+    </div>
+    <div class="widget-top"></div>
 </body>
-<script>
-    window.addEventListener("mousemove", function (e) {
-        document.querySelectorAll(".magical").forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const offsetX = e.clientX - rect.left;
-            const offsetY = e.clientY - rect.top;
-            element.style.setProperty("--mouse-x", `${offsetX}px`);
-            element.style.setProperty("--mouse-y", `${offsetY}px`);
-        });
-    });
-</script>
 <script src="./js/main.min.js"></script>
 <script src='./js/anime.js'></script>
 <script src='./js/firework.js'></script>
+
 </html>

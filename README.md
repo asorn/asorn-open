@@ -1,10 +1,10 @@
-# asorn-open
+# asorn-open-2025
 
 
 
 ### 介绍
 
-欢迎使用我的个人博客开源版。
+欢迎使用我的个人博客 2025 最新开源版，老版本请戳 [1.0](https://github.com/asorn/asorn-open)。最新版新增了
 
 > 我的博客地址：https://asorn.cn/
 
@@ -22,28 +22,7 @@
 
 - 原则上来说，你可以随意拿着这套项目去玩耍；
 - 但请不要直接用于商业用途；
-- 如果你同样崇尚开源精神，请为我们署个名吧（直接署名、代码注释、友链等任何形式）。
-
----
-
-### 创作
-
-一起欣赏下大家的创作吧（如果你愿意，可以联系我添加你的创作）：
-
-- [SCOTT-STUDIO](https://scott-studio.cn/)
-- [tutuzly](https://tutuzly.com/)
-- [Icnon](https://icnon.github.io/)
-- [Henry](https://henryblog.cn/)
-- [Jerry](https://lanxx.top/)
-- [Htm](http://htm.wang/)
-- [Taoqibao](https://www.liangwangan.top/)
-- [Ethan Zhi](https://ethanzhi.top/)
-- [NextEcho](https://nextecho.github.io/)
-- [limitlessjoy](http://limitlessjoy.cn/)
-- [Jiang](https://freedesignfreecreation.cn/)
-- [51921](https://51921.work/)
-- [Ethink](https://huaeyl.cn/)
-- [leonardo_zi](http://leonardozi4.cloud/)
+- **唯一的要求是，请保留页面底部的版权信息：© Design by [Asorn](https://asorn.cn/)**
 
 ---
 
@@ -54,10 +33,6 @@
 邮箱：cjl294114430@gmail.com
 
 ---
-
-### 致谢
-
-在这里，感谢我的好基友 [hmwl](https://github.com/hmwl) 所提供的技术支持！
 
 ### 赞赏
 

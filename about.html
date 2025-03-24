@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" style="color-scheme: dark;">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,42 +9,46 @@
 </head>
 <body>
     <canvas class="fireworks"></canvas>
-    <div class="head">
+    <div class="head" id="headscrollbg">
         <div class="main">
-            <a href="./index.html" class="logo"><img src="./assets/public/logo_text.svg"></a>
-            <div class="menu">
+            <div class="main-left">
+                <a href="./index.html" class="logo"><img src="./assets/public/logo_graph.svg"></a>
+                <div class="tag tag-cooperate" onclick="window.location.href='./about.html'">
+                    <div class="breath-dot"></div>Contact
+                </div>
+            </div>
+            <div class="menu" id="main-menu">
                 <li class="magical btn" onclick="window.location.href='./index.html'">Home</li>
                 <li class="magical btn" onclick="window.location.href='./work.html'">Work</li>
+                <li class="magical btn" onclick="window.location.href='./tool.html'">Tool</li>
                 <li class="magical btn" onclick="window.location.href='./blog.html'">Blog</li>
+                <li class="magical btn" onclick="window.location.href='./book.html'">Book</li>
                 <li class="magical btn nav" onclick="window.location.href='./about.html'">About</li>
             </div>
             <div class="menu" id="menu-expand">
-                <li class="magical btn skin" id="menu-expand-child"><i class="icon menu-icon"></i></li>
+                <li class="magical btn menu-expand-btn" id="menu-expand-child"><i class="icon menu-icon"></i></li>
             </div>
             <div id="menu-panel">
-                <div class="menu-panel-content">
-                    <li class="magical btn" onclick="window.location.href='./index.html'">Home</li>
-                    <li class="magical btn" onclick="window.location.href='./work.html'">Work</li>
-                    <li class="magical btn" onclick="window.location.href='./blog.html'">Blog</li>
-                    <li class="magical btn nav" onclick="window.location.href='./about.html'">About</li>
+                <div class="menu-panel-content" id="menu-panel-content"></div>
+                <div class="menu-close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z"></path></svg>
                 </div>
             </div>
         </div>
-        <blockquote><img src="./assets/public/logo.svg"></blockquote>
     </div>
     <div class="about">
         <div class="about-top">
-            <div class="about-name">Name</div>
+            <div class="about-name text-effect">My Name</div>
             <div class="about-info">
-                <div class="about-info-left">
+                <div class="about-info-left load-pro">
                     <div class="about-info-title">Introduce</div>
                     <div class="introduce-desc">
                         I am currently a product designer, junior developer, and aspire to become a design engineer. Having insights and practical experience in multiple industries such as cloud computing, low code, e-commerce, intelligent customer service, and zero trust.<br><br>
                         I am passionate about the infinite possibilities of technology and also focused on exploring the values of product design, seeking a balance between ultimate design, interaction, technological inclusion, and business understanding to solve problems.<br><br>
-                        In addition, I have won three patents for appearance invention, which can be found in the <a href="http://epub.cnipa.gov.cn/" target="_blank">China National Intellectual Property Administration ↗</a> Enter my name on the official website to search.
+                        In addition, I have won three patents for appearance invention, which can be found in the  <a href="http://epub.cnipa.gov.cn/" target="_blank">China National Intellectual Property Administration ↗</a>  Enter my name on the official website to search.<br><br>
                     </div>
                 </div>
-                <div class="about-info-right">
+                <div class="about-info-right load-pro">
                     <div class="contact">
                         <div class="about-info-title">Contact</div>
                         <div class="contact-desc">
@@ -53,10 +57,10 @@
                                 <div href="javascript:" class="list-value" id="email" tabindex="0" role="button"  title="点击复制邮箱">
                                     <a id="emailCopied">hi@asorn.cn</a>
                                 </div>
-                                <span class="list-value copied">copied&nbsp;✓</span>
+                                <span class="list-value copied">Copied&nbsp;✓</span>
                             </div>
                             <div class="list">
-                                <div class="list-label">Wechat：</div>
+                                <div class="list-label">WeChat：</div>
                                 <div class="list-value">
                                     <a class="tooltip">imasorn
                                         <div class="tooltip-box">
@@ -70,19 +74,19 @@
                     <div class="resume">
                         <div class="about-info-title resume-title">Resume</div>
                         <div class="resume-desc">
-                            <div class="resume-desc-helptext">Download my resume (PDF & 1MB)</div>
-                            <div class="magical resume-btn"><a href="https://asorn.cn/" target="_blank">Download</a></div>
+                            <div class="resume-desc-helptext">Download CV (PDF & 1MB)</div>
+                            <div class="magical primary-btn btn-s"><a href="https://asorn.cn/" target="_blank">Download</a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="about-middle">
+        <div class="about-middle load-pro">
             <div class="power">
                 <div class="list-00">
                     <div class="magical power-card-number">
                         <a>
-                            <div class="card-title">7</div>
+                            <div class="card-title">8</div>
                             <div class="card-text">Work</div>
                         </a>
                     </div>
@@ -108,19 +112,13 @@
                 <div class="list-01">
                     <div class="magical power-card">
                         <a>
-                            <div class="card-img" style="background-image: url('./assets/about/abstract.svg')"></div>
-                            <div class="card-text">My abilities</div>
-                        </a>
-                    </div>
-                    <div class="magical power-card">
-                        <a>
                             <div class="card-img" style="background-image: url('./assets/about/menu.svg')"></div>
                             <div class="card-text">My abilities</div>
                         </a>
                     </div>
                     <div class="magical power-card">
                         <a>
-                            <div class="card-img" style="background-image: url('./assets/about/code.svg')"></div>
+                            <div class="card-img" style="background-image: url('./assets/about/pen.svg')"></div>
                             <div class="card-text">My abilities</div>
                         </a>
                     </div>
@@ -132,82 +130,101 @@
                     </div>
                     <div class="magical power-card">
                         <a>
-                            <div class="card-img" style="background-image: url('./assets/about/pen.svg')"></div>
+                            <div class="card-img" style="background-image: url('./assets/about/abstract.svg')"></div>
+                            <div class="card-text">My abilities</div>
+                        </a>
+                    </div>
+                    <div class="magical power-card">
+                        <a>
+                            <div class="card-img" style="background-image: url('./assets/about/code.svg')"></div>
                             <div class="card-text">My abilities</div>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="about-bottom">
+        <div class="about-bottom load-pro">
             <div class="experience">
-                <div class="item">
+                <div class="item load-pro">
                     <div class="time">❖ 2023.10 ~ Now</div>
                     <div class="name">
-                        <div class="company"><a href="https://asorn.cn/" target="_blank">Company One ↗</a></div>
-                        <div class="job">UI Designer</div>
-                    </div>
-                    <div class="project-experience">
-                        <div class="item">
-                            <div class="title">Project Title</div>
-                            <div class="desc">
-                                <ul>
-                                    <li>App, Web, H5, Mini Program, Backend Design, Design Asset Building, Axure Interaction Design, Enterprise VI Design, etc. Welcome to consult</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="time">❖ 2019.08 ~ 2023.08</div>
-                    <div class="name">
-                        <div class="company"><a href="https://asorn.cn/" target="_blank">Company Two ↗</a></div>
+                        <div class="company"><a href="https://asorn.cn/" target="_blank">Company Name ↗</a></div>
                         <div class="job">Product Designer</div>
                     </div>
                     <div class="project-experience">
-                        <div class="item">
-                            <div class="title">Project Title One</div>
+                        <div class="item load-pro">
+                            <div class="title">Project Title</div>
                             <div class="desc">
                                 <ul>
-                                    <li>This is a project description that can introduce one's project achievements, project experience, and achievements;</li>
-                                    <li>This is a project description that can introduce one's project achievements, project experience, and achievements;</li>
-                                    <li>This is a project description that can introduce one's project achievements, project experience, and achievements.</li>
+                                    <li>App, Web, H5, Mini Program, Backend Design, <span>Design </span>Asset Building, Axure Interaction Design, Enterprise VI Design, etc. Welcome to consult.</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="title">Project Title Two</div>
+                        <div class="item load-pro">
+                            <div class="title">Project Title</div>
                             <div class="desc">
                                 <ul>
-                                    <li>This is a project description that can introduce one's project achievements, project experience, and achievements;</li>
-                                    <li>This is a project description that can introduce one's project achievements, project experience, and achievements.</li>
+                                    <li>App, Web, H5, Mini Program, Backend Design, <span>Design </span>Asset Building, Axure Interaction Design, Enterprise VI Design, etc. Welcome to consult;</li>
+                                    <li>App, Web, H5, Mini Program, Backend Design, <span>Design </span>Asset Building, Axure Interaction Design, Enterprise VI Design, etc. Welcome to consult.</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="title">Project Title Three</div>
+                        <div class="item load-pro">
+                            <div class="title">Project Title</div>
                             <div class="desc">
                                 <ul>
-                                    <li>This is a project description that can introduce one's project achievements, project experience, and achievements;</li>
-                                    <li>This is a project description that can introduce one's project achievements, project experience, and achievements.</li>
+                                    <li>App, Web, H5, Mini Program, Backend Design, <span>Design </span>Asset Building, Axure Interaction Design, Enterprise VI Design, etc. Welcome to consult.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="time">❖ 2016.05 ~ 2019.06</div>
+                <div class="item load-pro">
+                    <div class="time">❖ 2019.08 ~ 2023.08</div>
                     <div class="name">
-                        <div class="company"><a href="https://asorn.cn/" target="_blank">Company Three ↗</a></div>
-                        <div class="job">UI Designer</div>
+                        <div class="company"><a href="https://asorn.cn/" target="_blank">Company Name ↗</a></div>
+                        <div class="job">Product Designer</div>
                     </div>
                     <div class="project-experience">
-                        <div class="item">
+                        <div class="item load-pro">
                             <div class="title">Project Title</div>
                             <div class="desc">
                                 <ul>
-                                    <li>This is a project description that can introduce one's project achievements, project experience, and achievements;</li>
-                                    <li>This is a project description that can introduce one's project achievements, project experience, and achievements.</li>
+                                    <li>App, Web, H5, Mini Program, Backend Design, <span>Design </span>Asset Building, Axure Interaction Design, Enterprise VI Design, etc. Welcome to consult.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item load-pro">
+                            <div class="title">Project Title</div>
+                            <div class="desc">
+                                <ul>
+                                    <li>App, Web, H5, Mini Program, Backend Design, <span>Design </span>Asset Building, Axure Interaction Design, Enterprise VI Design, etc. Welcome to consult;</li>
+                                    <li>App, Web, H5, Mini Program, Backend Design, <span>Design </span>Asset Building, Axure Interaction Design, Enterprise VI Design, etc. Welcome to consult.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item load-pro">
+                            <div class="title">Project Title</div>
+                            <div class="desc">
+                                <ul>
+                                    <li>App, Web, H5, Mini Program, Backend Design, <span>Design </span>Asset Building, Axure Interaction Design, Enterprise VI Design, etc. Welcome to consult.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item load-pro">
+                    <div class="time">❖ 2016.05 ~ 2019.06</div>
+                    <div class="name">
+                        <div class="company"><a href="https://asorn.cn/" target="_blank">Company Name ↗</a></div>
+                        <div class="job">Product Designer</div>
+                    </div>
+                    <div class="project-experience">
+                        <div class="item load-pro">
+                            <div class="title">Project Title</div>
+                            <div class="desc">
+                                <ul>
+                                    <li>App, Web, H5, Mini Program, Backend Design, <span>Design </span>Asset Building, Axure Interaction Design, Enterprise VI Design, etc. Welcome to consult.</li>
                                 </ul>
                             </div>
                         </div>
@@ -217,15 +234,18 @@
         </div>
     </div>
     <div class="footer">
-        <div class="copyright">
-            <div>© 2023 Design by <a href="https://asorn.cn/" target="_blank">Asorn</a></div>
-            <span>|</span>
-            <div class="fillings">
-                <a href="https://asorn.cn/" target="_blank">Asorn</a>
+        <div class="footer-content">
+            <div class="copyright">
+                <div>© 2025 Design by <a href="https://asorn.cn/" target="_blank">Asorn</a></div>
+                <span>|</span>
+                <div class="fillings">
+                    <a href="https://asorn.cn/" target="_blank">Your filing number</a>
+                </div>
             </div>
-            <span>|</span>
             <div class="friends">
                 <a href="https://zdo.fun/" target="_blank">ZDO</a>
+                <a href="https://larkmap.com/" target="_blank">Larkmap</a>
+                <a href="https://qingicon.com/" target="_blank">QingIcon</a>
             </div>
         </div>
     </div>
@@ -240,6 +260,7 @@
         </div>
         <div class="shape-earth"></div>
     </div>
+    <div class="widget-top"></div>
 </body>
 <script src="./js/main.min.js"></script>
 <script src='./js/anime.js'></script>

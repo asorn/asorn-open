@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN" style="color-scheme: dark;">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,257 +8,338 @@
     <link rel="stylesheet" href="./css/style.min.css">
     <link rel="shortcut icon" href="./assets/public/favicon.svg" />
 </head>
+
 <body>
     <canvas class="fireworks"></canvas>
-    <div class="head">
+    <div class="head" id="headscrollbg">
         <div class="main">
-            <a href="./index.html" class="logo"><img src="./assets/public/logo_text.svg"></a>
-            <div class="menu">
+            <div class="main-left">
+                <a href="./index.html" class="logo"><img src="./assets/public/logo_graph.svg"></a>
+                <div class="tag tag-cooperate" onclick="window.location.href='./about.html'">
+                    <div class="breath-dot"></div>Contact
+                </div>
+            </div>
+            <div class="menu" id="main-menu">
                 <li class="magical btn" onclick="window.location.href='./index.html'">Home</li>
                 <li class="magical btn" onclick="window.location.href='./work.html'">Work</li>
+                <li class="magical btn" onclick="window.location.href='./tool.html'">Tool</li>
                 <li class="magical btn nav" onclick="window.location.href='./blog.html'">Blog</li>
+                <li class="magical btn" onclick="window.location.href='./book.html'">Book</li>
                 <li class="magical btn" onclick="window.location.href='./about.html'">About</li>
             </div>
             <div class="menu" id="menu-expand">
-                <li class="magical btn skin" id="menu-expand-child"><i class="icon menu-icon"></i></li>
+                <li class="magical btn menu-expand-btn" id="menu-expand-child"><i class="icon menu-icon"></i></li>
             </div>
             <div id="menu-panel">
-                <div class="menu-panel-content">
-                    <li class="magical btn" onclick="window.location.href='./index.html'">Home</li>
-                    <li class="magical btn" onclick="window.location.href='./work.html'">Work</li>
-                    <li class="magical btn nav" onclick="window.location.href='./blog.html'">Blog</li>
-                    <li class="magical btn" onclick="window.location.href='./about.html'">About</li>
+                <div class="menu-panel-content" id="menu-panel-content"></div>
+                <div class="menu-close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z"></path></svg>
                 </div>
             </div>
         </div>
-        <blockquote><img src="./assets/public/logo.svg"></blockquote>
     </div>
     <div class="blog">
-        <div class="blog-left">
-            <div class="blog-left-line"><img src="./assets/blog/line-dot.svg"></div>
+        <div class="scroll-indicator">
+            <div class="scroll-thumb"></div>
         </div>
         <div class="blog-list">
-            <div class="item">
-                <a href="https://www.yuque.com/asorn" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">我的知识花园</div>
-                                <div class="link"> ↗</div>
-                            </div>
-                            <div class="tag">✨</div>
+            <div class="blog-list-knowledge">
+                <div class="magical link-card-item">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="card-img" style="background-image: url('./assets/blog/yuque.svg')"></div>
+                        <div class="info">
+                            <div class="info-title">Knowledge</div>
+                            <div class="info-desc">A description of knowledge</div>
                         </div>
-                        <div class="desc">你可以了解我在沉淀设计资产方面的相关经验、多年设计工作以来日积月累的丰富实战经验、作为重度观影爱好者的无聊记录、对这个世界充满敬畏而收集的奇思妙想。</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">1970-01-01</div>
-                    </div>
-                </a>
-                <div class="content-divider"></div>
+                        <div class="icon icon-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
+                                fill="none">
+                                <path
+                                    d="M10.55 7.58332H1.16663V6.41665H10.55L7.75415 3.62082L8.5791 2.79587L12.1645 6.3813C12.5062 6.72299 12.5062 7.27701 12.1645 7.61873L8.5791 11.2042L7.75415 10.3792L10.55 7.58332Z"
+                                    fill="#B3B3C1"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <div class="magical link-card-item">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="card-img" style="background-image: url('./assets/blog/assets.svg')"></div>
+                        <div class="info">
+                            <div class="info-title">Knowledge</div>
+                            <div class="info-desc">A description of knowledge</div>
+                        </div>
+                        <div class="icon icon-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
+                                fill="none">
+                                <path
+                                    d="M10.55 7.58332H1.16663V6.41665H10.55L7.75415 3.62082L8.5791 2.79587L12.1645 6.3813C12.5062 6.72299 12.5062 7.27701 12.1645 7.61873L8.5791 11.2042L7.75415 10.3792L10.55 7.58332Z"
+                                    fill="#B3B3C1"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <div class="magical link-card-item">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="card-img" style="background-image: url('./assets/blog/garden.svg')"></div>
+                        <div class="info">
+                            <div class="info-title">Knowledge</div>
+                            <div class="info-desc">A description of knowledge</div>
+                        </div>
+                        <div class="icon icon-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
+                                fill="none">
+                                <path
+                                    d="M10.55 7.58332H1.16663V6.41665H10.55L7.75415 3.62082L8.5791 2.79587L12.1645 6.3813C12.5062 6.72299 12.5062 7.27701 12.1645 7.61873L8.5791 11.2042L7.75415 10.3792L10.55 7.58332Z"
+                                    fill="#B3B3C1"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <div class="magical link-card-item">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="card-img" style="background-image: url('./assets/blog/knowledge.svg')"></div>
+                        <div class="info">
+                            <div class="info-title">Knowledge</div>
+                            <div class="info-desc">A description of knowledge</div>
+                        </div>
+                        <div class="icon icon-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
+                                fill="none">
+                                <path
+                                    d="M10.55 7.58332H1.16663V6.41665H10.55L7.75415 3.62082L8.5791 2.79587L12.1645 6.3813C12.5062 6.72299 12.5062 7.27701 12.1645 7.61873L8.5791 11.2042L7.75415 10.3792L10.55 7.58332Z"
+                                    fill="#B3B3C1"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <div class="magical link-card-item">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="card-img" style="background-image: url('./assets/blog/movie.svg')"></div>
+                        <div class="info">
+                            <div class="info-title">Knowledge</div>
+                            <div class="info-desc">A description of knowledge</div>
+                        </div>
+                        <div class="icon icon-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
+                                fill="none">
+                                <path
+                                    d="M10.55 7.58332H1.16663V6.41665H10.55L7.75415 3.62082L8.5791 2.79587L12.1645 6.3813C12.5062 6.72299 12.5062 7.27701 12.1645 7.61873L8.5791 11.2042L7.75415 10.3792L10.55 7.58332Z"
+                                    fill="#B3B3C1"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="item">
-                <a href="https://asorn.cn/" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">My name is Asorn</div>
-                                <div class="link"> ↗</div>
+            <div class="blog-list-item">
+                <div class="magical blog-recommend">
+                    <a href="https://www.uisdc.com/derived-visual-color" target="_blank">
+                        <div class="left-content">
+                            <img src="./assets/blog/visualcolor.png">
+                        </div>
+                        <div class="right-content">
+                            <div class="text">
+                                <div class="title-area">
+                                    <div class="title">
+                                        <div class="name-emoji">🔥 </div>
+                                        <div class="name">Article Title</div>
+                                        <div class="name link"> ↗</div>
+                                    </div>
+                                    <div class="tag-text"># Tag</div>
+                                </div>
+                                <div class="desc" id="clampText">Welcome to my open source blog, my blog address is https://asorn.cn/</div>
+                            </div>
+                            <div class="info">
+                                <div class="info-time">2022-12-25</div>
                             </div>
                         </div>
-                        <div class="desc">Welcome to my open source blog, my blog address is: https://asorn.cn/</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">2022-12-25</div>
-                    </div>
-                </a>
-                <div class="content-divider"></div>
-            </div>
-            <div class="item">
-                <a href="https://asorn.cn/" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">My name is Asorn</div>
-                                <div class="link"> ↗</div>
+                    </a>
+                </div>
+                <div class="item load-pro">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name">Article Title</div>
+                                    <div class="name link"> ↗</div>
+                                </div>
+                                <div class="tag-text"># Tag</div>
                             </div>
+                            <div class="desc">Welcome to my open source blog, my blog address is https://asorn.cn/</div></div>
+                        <div class="info">
+                            <div class="info-time">2022-11-20</div>
                         </div>
-                        <div class="desc">Welcome to my open source blog, my blog address is: https://asorn.cn/</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">2022-12-25</div>
-                    </div>
-                </a>
-                <div class="content-divider"></div>
-            </div>
-            <div class="item">
-                <a href="https://asorn.cn/" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">My name is Asorn</div>
-                                <div class="link"> ↗</div>
+                    </a>
+                    <div class="content-divider"></div>
+                </div>
+                <div class="item load-pro">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name">Article Title</div>
+                                    <div class="name link"> ↗</div>
+                                </div>
+                                <div class="tag-text"># Tag</div>
                             </div>
+                            <div class="desc">Welcome to my open source blog, my blog address is https://asorn.cn/, Welcome to my open source blog, my blog address is https://asorn.cn/</div></div>
+                        <div class="info">
+                            <div class="info-time">2022-11-20</div>
                         </div>
-                        <div class="desc">Welcome to my open source blog, my blog address is: https://asorn.cn/</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">2022-12-25</div>
-                    </div>
-                </a>
-                <div class="content-divider"></div>
-            </div>
-            <div class="item">
-                <a href="https://asorn.cn/" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">My name is Asorn</div>
-                                <div class="link"> ↗</div>
+                    </a>
+                    <div class="content-divider"></div>
+                </div>
+                <div class="item load-pro">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name">Article Title</div>
+                                    <div class="name link"> ↗</div>
+                                </div>
+                                <div class="tag-text"># Tag</div>
                             </div>
+                            <div class="desc">Welcome to my open source blog, my blog address is https://asorn.cn/</div></div>
+                        <div class="info">
+                            <div class="info-time">2022-11-20</div>
                         </div>
-                        <div class="desc">Welcome to my open source blog, my blog address is: https://asorn.cn/</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">2022-12-25</div>
-                    </div>
-                </a>
-                <div class="content-divider"></div>
-            </div>
-            <div class="item">
-                <a href="https://asorn.cn/" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">My name is Asorn</div>
-                                <div class="link"> ↗</div>
+                    </a>
+                    <div class="content-divider"></div>
+                </div>
+                <div class="item load-pro">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name">Article Title</div>
+                                    <div class="name link"> ↗</div>
+                                </div>
+                                <div class="tag-text"># Tag</div>
                             </div>
+                            <div class="desc">Welcome to my open source blog, my blog address is https://asorn.cn/, Welcome to my open source blog, my blog address is https://asorn.cn/</div></div>
+                        <div class="info">
+                            <div class="info-time">2022-11-20</div>
                         </div>
-                        <div class="desc">Welcome to my open source blog, my blog address is: https://asorn.cn/</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">2022-12-25</div>
-                    </div>
-                </a>
-                <div class="content-divider"></div>
-            </div>
-            <div class="item">
-                <a href="https://asorn.cn/" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">My name is Asorn</div>
-                                <div class="link"> ↗</div>
+                    </a>
+                    <div class="content-divider"></div>
+                </div>
+                <div class="item load-pro">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name">Article Title</div>
+                                    <div class="name link"> ↗</div>
+                                </div>
+                                <div class="tag-text"># Tag</div>
                             </div>
+                            <div class="desc">Welcome to my open source blog, my blog address is https://asorn.cn/</div></div>
+                        <div class="info">
+                            <div class="info-time">2022-11-20</div>
                         </div>
-                        <div class="desc">Welcome to my open source blog, my blog address is: https://asorn.cn/</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">2022-12-25</div>
-                    </div>
-                </a>
-                <div class="content-divider"></div>
-            </div>
-            <div class="item">
-                <a href="https://asorn.cn/" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">My name is Asorn</div>
-                                <div class="link"> ↗</div>
+                    </a>
+                    <div class="content-divider"></div>
+                </div>
+                <div class="item load-pro">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name">Article Title</div>
+                                    <div class="name link"> ↗</div>
+                                </div>
+                                <div class="tag-text"># Tag</div>
                             </div>
+                            <div class="desc">Welcome to my open source blog, my blog address is https://asorn.cn/, Welcome to my open source blog, my blog address is https://asorn.cn/</div></div>
+                        <div class="info">
+                            <div class="info-time">2022-11-20</div>
                         </div>
-                        <div class="desc">Welcome to my open source blog, my blog address is: https://asorn.cn/</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">2022-12-25</div>
-                    </div>
-                </a>
-                <div class="content-divider"></div>
-            </div>
-            <div class="item">
-                <a href="https://asorn.cn/" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">My name is Asorn</div>
-                                <div class="link"> ↗</div>
+                    </a>
+                    <div class="content-divider"></div>
+                </div>
+                <div class="item load-pro">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name">Article Title</div>
+                                    <div class="name link"> ↗</div>
+                                </div>
+                                <div class="tag-text"># Tag</div>
                             </div>
+                            <div class="desc">Welcome to my open source blog, my blog address is https://asorn.cn/</div></div>
+                        <div class="info">
+                            <div class="info-time">2022-11-20</div>
                         </div>
-                        <div class="desc">Welcome to my open source blog, my blog address is: https://asorn.cn/</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">2022-12-25</div>
-                    </div>
-                </a>
-                <div class="content-divider"></div>
-            </div>
-            <div class="item">
-                <a href="https://asorn.cn/" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">My name is Asorn</div>
-                                <div class="link"> ↗</div>
+                    </a>
+                    <div class="content-divider"></div>
+                </div>
+                <div class="item load-pro">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name">Article Title</div>
+                                    <div class="name link"> ↗</div>
+                                </div>
+                                <div class="tag-text"># Tag</div>
                             </div>
+                            <div class="desc">Welcome to my open source blog, my blog address is https://asorn.cn/, Welcome to my open source blog, my blog address is https://asorn.cn/</div></div>
+                        <div class="info">
+                            <div class="info-time">2022-11-20</div>
                         </div>
-                        <div class="desc">Welcome to my open source blog, my blog address is: https://asorn.cn/</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">2022-12-25</div>
-                    </div>
-                </a>
-                <div class="content-divider"></div>
-            </div>
-            <div class="item">
-                <a href="https://asorn.cn/" target="_blank">
-                    <div class="text">
-                        <div class="title-area">
-                            <div class="title">
-                                <div class="name">My name is Asorn</div>
-                                <div class="link"> ↗</div>
+                    </a>
+                    <div class="content-divider"></div>
+                </div>
+                <div class="item load-pro">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name">Article Title</div>
+                                    <div class="name link"> ↗</div>
+                                </div>
+                                <div class="tag-text"># Tag</div>
                             </div>
+                            <div class="desc">Welcome to my open source blog, my blog address is https://asorn.cn/</div></div>
+                        <div class="info">
+                            <div class="info-time">2022-11-20</div>
                         </div>
-                        <div class="desc">Welcome to my open source blog, my blog address is: https://asorn.cn/</div>
-                    </div>
-                    <div class="info">
-                        <div class="info-avatar"><img src="./assets/blog/avatar.svg"></div>
-                        <div class="info-name">Asorn</div>
-                        <div class="info-time">2022-12-25</div>
-                    </div>
-                </a>
+                    </a>
+                    <div class="content-divider"></div>
+                </div>
+                <div class="item load-pro">
+                    <a href="https://www.yuque.com/asorn" target="_blank">
+                        <div class="text">
+                            <div class="title-area">
+                                <div class="title">
+                                    <div class="name">Article Title</div>
+                                    <div class="name link"> ↗</div>
+                                </div>
+                                <div class="tag-text"># Tag</div>
+                            </div>
+                            <div class="desc">Welcome to my open source blog, my blog address is https://asorn.cn/, Welcome to my open source blog, my blog address is https://asorn.cn/</div></div>
+                        <div class="info">
+                            <div class="info-time">2022-11-20</div>
+                        </div>
+                    </a>
+                    <div class="content-divider"></div>
+                </div>
             </div>
         </div>
     </div>
     <div class="footer">
-        <div class="copyright">
-            <div>© 2023 Design by <a href="https://asorn.cn/" target="_blank">Asorn</a></div>
-            <span>|</span>
-            <div class="fillings">
-                <a href="https://asorn.cn/" target="_blank">Asorn</a>
+        <div class="footer-content">
+            <div class="copyright">
+                <div>© 2025 Design by <a href="https://asorn.cn/" target="_blank">Asorn</a></div>
+                <span>|</span>
+                <div class="fillings">
+                    <a href="https://asorn.cn/" target="_blank">Your filing number</a>
+                </div>
             </div>
-            <span>|</span>
             <div class="friends">
                 <a href="https://zdo.fun/" target="_blank">ZDO</a>
+                <a href="https://larkmap.com/" target="_blank">Larkmap</a>
+                <a href="https://qingicon.com/" target="_blank">QingIcon</a>
             </div>
         </div>
     </div>
@@ -272,19 +354,10 @@
         </div>
         <div class="shape-earth"></div>
     </div>
+    <div class="widget-top"></div>
 </body>
-<script>
-    window.addEventListener("mousemove", function (e) {
-        document.querySelectorAll(".magical").forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const offsetX = e.clientX - rect.left;
-            const offsetY = e.clientY - rect.top;
-            element.style.setProperty("--mouse-x", `${offsetX}px`);
-            element.style.setProperty("--mouse-y", `${offsetY}px`);
-        });
-    });
-</script>
 <script src="./js/main.min.js"></script>
 <script src='./js/anime.js'></script>
 <script src='./js/firework.js'></script>
+
 </html>
