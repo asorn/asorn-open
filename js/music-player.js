@@ -62,6 +62,11 @@ class MusicPlayer {
                         <path d="M4 2L12 8L4 14V2Z" fill="currentColor"/>
                     </svg>
                 </button>
+                <button class="playlist-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 4H14V6H2V4ZM2 7H14V9H2V7ZM2 10H14V12H2V10Z" fill="currentColor"/>
+                    </svg>
+                </button>
             </div>
             <div class="song-info">
                 <div class="song-title">No song playing</div>
@@ -78,6 +83,9 @@ class MusicPlayer {
                     <div class="volume-level"></div>
                 </div>
             </div>
+            <div class="playlist-dropdown">
+                <div class="playlist-items"></div>
+            </div>
         `;
         document.body.appendChild(player);
 
@@ -86,6 +94,9 @@ class MusicPlayer {
         this.playBtn = player.querySelector('.play-btn');
         this.prevBtn = player.querySelector('.prev-btn');
         this.nextBtn = player.querySelector('.next-btn');
+        this.playlistBtn = player.querySelector('.playlist-btn');
+        this.playlistDropdown = player.querySelector('.playlist-dropdown');
+        this.playlistItems = player.querySelector('.playlist-items');
         this.songTitle = player.querySelector('.song-title');
         this.songArtist = player.querySelector('.song-artist');
         this.progressBar = player.querySelector('.progress-bar');
@@ -130,6 +141,16 @@ class MusicPlayer {
             this.songArtist.textContent = this.playlist[this.currentTrack].artist;
         });
 
+        // 播放列表按钮事件
+        this.playlistBtn.addEventListener('click', () => this.togglePlaylist());
+        
+        // 点击其他地方关闭播放列表
+        document.addEventListener('click', (e) => {
+            if (!this.player.contains(e.target)) {
+                this.playlistDropdown.classList.remove('active');
+            }
+        });
+
         // 页面卸载前保存状态
         window.addEventListener('beforeunload', () => this.saveState());
     }
@@ -138,6 +159,8 @@ class MusicPlayer {
         this.playlist = playlist;
         if (playlist.length > 0) {
             this.loadTrack(this.currentTrack);
+            // 更新播放列表下拉菜单
+            this.updatePlaylistDropdown();
             // 如果之前是播放状态，则继续播放
             if (this.isPlaying) {
                 this.audio.play();
@@ -150,12 +173,40 @@ class MusicPlayer {
         }
     }
 
+    updatePlaylistDropdown() {
+        this.playlistItems.innerHTML = '';
+        this.playlist.forEach((track, index) => {
+            const item = document.createElement('div');
+            item.className = 'playlist-item';
+            if (index === this.currentTrack) {
+                item.classList.add('active');
+            }
+            item.innerHTML = `
+                <div class="playlist-item-title">${track.title}</div>
+                <div class="playlist-item-artist">${track.artist}</div>
+            `;
+            item.addEventListener('click', () => {
+                this.loadTrack(index);
+                if (this.isPlaying) {
+                    this.audio.play();
+                }
+                this.playlistDropdown.classList.remove('active');
+            });
+            this.playlistItems.appendChild(item);
+        });
+    }
+
+    togglePlaylist() {
+        this.playlistDropdown.classList.toggle('active');
+    }
+
     loadTrack(index) {
         this.currentTrack = index;
         const track = this.playlist[index];
         this.audio.src = track.url;
         this.songTitle.textContent = track.title;
         this.songArtist.textContent = track.artist;
+        this.updatePlaylistDropdown();
     }
 
     togglePlay() {
@@ -216,6 +267,16 @@ const playlist = [
         title: "Color Your Night",
         artist: "Atlus Sound Team",
         url: "./assets/music/Atlus Sound Team - Color Your Night.mp3"
+    },
+    {
+        title: "Point the Star 2",
+        artist: "G Sounds",
+        url: "./assets/music/G Sounds - Point the Star 2.mp3"
+    },
+    {
+        title: "Fly Me to the Moon",
+        artist: "Frank Sinatra",
+        url: "./assets/music/Frank Sinatra _ Count Basie - Fly Me To The Moon(In Other Words).mp3"
     }
 ];
 

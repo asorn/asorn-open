@@ -95,4 +95,77 @@
     background: #333;
     width: 100%;
     border-radius: 2px;
+}
+
+.music-player .playlist-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.music-player .playlist-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+}
+
+.music-player .playlist-dropdown {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.music-player .playlist-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.music-player .playlist-items {
+    padding: 10px 0;
+}
+
+.music-player .playlist-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.music-player .playlist-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.music-player .playlist-item.active {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.music-player .playlist-item-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.music-player .playlist-item-artist {
+    font-size: 12px;
+    color: #666;
 } 
