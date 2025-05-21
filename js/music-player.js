@@ -1,0 +1,189 @@
+class MusicPlayer {
+    constructor() {
+        this.audio = new Audio();
+        this.playlist = [];
+        this.currentTrack = 0;
+        this.isPlaying = false;
+        this.volume = 0.5;
+        
+        // 从 localStorage 恢复状态
+        this.loadState();
+        
+        this.initializePlayer();
+        this.setupEventListeners();
+    }
+
+    loadState() {
+        const savedState = localStorage.getItem('musicPlayerState');
+        if (savedState) {
+            const state = JSON.parse(savedState);
+            this.currentTrack = state.currentTrack || 0;
+            this.isPlaying = state.isPlaying || false;
+            this.volume = state.volume || 0.5;
+            this.audio.volume = this.volume;
+        }
+    }
+
+    saveState() {
+        const state = {
+            currentTrack: this.currentTrack,
+            isPlaying: this.isPlaying,
+            volume: this.volume
+        };
+        localStorage.setItem('musicPlayerState', JSON.stringify(state));
+    }
+
+    initializePlayer() {
+        // 创建播放器DOM元素
+        const player = document.createElement('div');
+        player.className = 'music-player';
+        player.innerHTML = `
+            <div class="controls">
+                <button class="play-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 2L12 8L4 14V2Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="song-info">
+                <div class="song-title">No song playing</div>
+                <div class="song-artist">-</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="volume-control">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 2.5V13.5M8 2.5L4 6.5H1V9.5H4L8 13.5V2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="volume-slider">
+                    <div class="volume-level"></div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(player);
+
+        // 保存DOM引用
+        this.player = player;
+        this.playBtn = player.querySelector('.play-btn');
+        this.songTitle = player.querySelector('.song-title');
+        this.songArtist = player.querySelector('.song-artist');
+        this.progressBar = player.querySelector('.progress-bar');
+        this.progress = player.querySelector('.progress');
+        this.volumeSlider = player.querySelector('.volume-slider');
+        this.volumeLevel = player.querySelector('.volume-level');
+
+        // 设置初始音量
+        this.audio.volume = this.volume;
+        this.volumeLevel.style.width = `${this.volume * 100}%`;
+    }
+
+    setupEventListeners() {
+        // 播放/暂停按钮事件
+        this.playBtn.addEventListener('click', () => this.togglePlay());
+
+        // 进度条点击事件
+        this.progressBar.addEventListener('click', (e) => {
+            const rect = this.progressBar.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            this.audio.currentTime = pos * this.audio.duration;
+        });
+
+        // 音量控制事件
+        this.volumeSlider.addEventListener('click', (e) => {
+            const rect = this.volumeSlider.getBoundingClientRect();
+            this.volume = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+            this.audio.volume = this.volume;
+            this.volumeLevel.style.width = `${this.volume * 100}%`;
+            this.saveState();
+        });
+
+        // 音频事件
+        this.audio.addEventListener('timeupdate', () => this.updateProgress());
+        this.audio.addEventListener('ended', () => this.playNext());
+        this.audio.addEventListener('loadedmetadata', () => {
+            this.songTitle.textContent = this.playlist[this.currentTrack].title;
+            this.songArtist.textContent = this.playlist[this.currentTrack].artist;
+        });
+
+        // 页面卸载前保存状态
+        window.addEventListener('beforeunload', () => this.saveState());
+    }
+
+    setPlaylist(playlist) {
+        this.playlist = playlist;
+        if (playlist.length > 0) {
+            this.loadTrack(this.currentTrack);
+            // 如果之前是播放状态，则继续播放
+            if (this.isPlaying) {
+                this.audio.play();
+                this.playBtn.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 2H8V14H6V2ZM10 2H12V14H10V2Z" fill="currentColor"/>
+                    </svg>
+                `;
+            }
+        }
+    }
+
+    loadTrack(index) {
+        this.currentTrack = index;
+        const track = this.playlist[index];
+        this.audio.src = track.url;
+        this.songTitle.textContent = track.title;
+        this.songArtist.textContent = track.artist;
+    }
+
+    togglePlay() {
+        if (this.isPlaying) {
+            this.audio.pause();
+            this.playBtn.innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 2L12 8L4 14V2Z" fill="currentColor"/>
+                </svg>
+            `;
+        } else {
+            this.audio.play();
+            this.playBtn.innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2H8V14H6V2ZM10 2H12V14H10V2Z" fill="currentColor"/>
+                </svg>
+            `;
+        }
+        this.isPlaying = !this.isPlaying;
+        this.saveState();
+    }
+
+    playNext() {
+        this.currentTrack = (this.currentTrack + 1) % this.playlist.length;
+        this.loadTrack(this.currentTrack);
+        if (this.isPlaying) {
+            this.audio.play();
+        }
+        this.saveState();
+    }
+
+    updateProgress() {
+        const percent = (this.audio.currentTime / this.audio.duration) * 100;
+        this.progress.style.width = `${percent}%`;
+    }
+}
+
+// 初始化播放器
+const player = new MusicPlayer();
+
+// 示例播放列表
+const playlist = [
+    {
+        title: "2:23 AM",
+        artist: "しゃろう",
+        url: "./assets/music/しゃろう - 2_23 AM.mp3"
+    },
+    {
+        title: "Color Your Night",
+        artist: "Atlus Sound Team",
+        url: "./assets/music/Atlus Sound Team - Color Your Night.mp3"
+    }
+];
+
+player.setPlaylist(playlist); 
