@@ -21,6 +21,13 @@ class MusicPlayer {
             this.isPlaying = state.isPlaying || false;
             this.volume = state.volume || 0.5;
             this.audio.volume = this.volume;
+            
+            // 设置音频源后恢复播放时间
+            this.audio.addEventListener('loadedmetadata', () => {
+                if (state.currentTime) {
+                    this.audio.currentTime = state.currentTime;
+                }
+            }, { once: true });
         }
     }
 
@@ -28,7 +35,8 @@ class MusicPlayer {
         const state = {
             currentTrack: this.currentTrack,
             isPlaying: this.isPlaying,
-            volume: this.volume
+            volume: this.volume,
+            currentTime: this.audio.currentTime
         };
         localStorage.setItem('musicPlayerState', JSON.stringify(state));
     }
@@ -39,7 +47,17 @@ class MusicPlayer {
         player.className = 'music-player';
         player.innerHTML = `
             <div class="controls">
+                <button class="prev-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L4 8L12 14V2Z" fill="currentColor"/>
+                    </svg>
+                </button>
                 <button class="play-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 2L12 8L4 14V2Z" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button class="next-btn">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 2L12 8L4 14V2Z" fill="currentColor"/>
                     </svg>
@@ -66,6 +84,8 @@ class MusicPlayer {
         // 保存DOM引用
         this.player = player;
         this.playBtn = player.querySelector('.play-btn');
+        this.prevBtn = player.querySelector('.prev-btn');
+        this.nextBtn = player.querySelector('.next-btn');
         this.songTitle = player.querySelector('.song-title');
         this.songArtist = player.querySelector('.song-artist');
         this.progressBar = player.querySelector('.progress-bar');
@@ -81,6 +101,10 @@ class MusicPlayer {
     setupEventListeners() {
         // 播放/暂停按钮事件
         this.playBtn.addEventListener('click', () => this.togglePlay());
+
+        // 上一首/下一首按钮事件
+        this.prevBtn.addEventListener('click', () => this.playPrevious());
+        this.nextBtn.addEventListener('click', () => this.playNext());
 
         // 进度条点击事件
         this.progressBar.addEventListener('click', (e) => {
@@ -156,6 +180,15 @@ class MusicPlayer {
 
     playNext() {
         this.currentTrack = (this.currentTrack + 1) % this.playlist.length;
+        this.loadTrack(this.currentTrack);
+        if (this.isPlaying) {
+            this.audio.play();
+        }
+        this.saveState();
+    }
+
+    playPrevious() {
+        this.currentTrack = (this.currentTrack - 1 + this.playlist.length) % this.playlist.length;
         this.loadTrack(this.currentTrack);
         if (this.isPlaying) {
             this.audio.play();
