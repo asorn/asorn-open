@@ -1,6 +1,18 @@
 # asorn-open
 
 
+### 更新说明
+
+最新 2025 版发布了，迫于失业后的经济压力，不得不把它做成付费产品挣点口粮，毕竟是自己多年的心血。相比旧版，最新版全面升级，兼顾信息有效呈现的同时，侧重新增了一些偏实用的功能。此外，新增了大量微动效，完美适配移动端。总的来说，整个网站的丰富度大幅提升了，浏览体验也异常丝滑了。
+
+感兴趣的朋友可以去小红书瞅一眼：
+
+[点击查看](https://www.xiaohongshu.com/goods-detail/6887372186c0df0001e0e0c9?xsec_token=XBVjc4lVke4qkgAvLmJPHQoQVsk2ZySMgSHKEPC2icYDo=&xsec_source=app_share&instation_link=xhsdiscover%3A%2F%2Fgoods_detail%2F6887372186c0df0001e0e0c9%3Ftrade_ext%3DeyJjaGFubmVsSW5mbyI6bnVsbCwiZHNUb2tlbkluZm8iOm51bGwsInNoYXJlTGluayI6Imh0dHBzOi8vd3d3LnhpYW9ob25nc2h1LmNvbS9nb29kcy1kZXRhaWwvNjg4NzM3MjE4NmMwZGYwMDAxZTBlMGM5P2FwcHVpZD01OGZlYmRhYjUwYzRiNDUyN2VmMGRjMDkiLCJsaXZlSW5mbyI6bnVsbCwic2hvcEluZm8iOm51bGwsImdvb2RzTm90ZUluZm8iOm51bGwsImNoYXRJbmZvIjpudWxsLCJzZWFyY2hJbmZvIjpudWxsLCJwcmVmZXIiOm51bGx9%26rate_limit_meta%3DitemId%253D6887372186c0df0001e0e0c8%26rn%3Dtrue&xhsshare=CopyLink&appuid=58febdab50c4b4527ef0dc09&apptime=1753703842&share_id=ca3f7467e46e491ebe1f52d9ef742201)
+
+---
+
+> 我的博客地址：https://asorn.cn/
+
 ### 介绍
 
 欢迎使用我的个人博客开源版。
